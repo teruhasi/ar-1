@@ -11,6 +11,8 @@
         marker.addEventListener('markerFound', function () {
           var markerId = marker.id;
           console.log('markerFound', markerId);
+          //モーダルウィンドウを実装
+          document.querySelector('#modal').style.display = 'block';
 
           // アニメーションの開始
           document.querySelector('#box').emit('markerfound');
@@ -29,6 +31,24 @@
   </script>
 
   <body style="margin: 0px; overflow: hidden">
+    <!--モーダルウィンドウを実装-->
+    <div
+      id="modal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      ">
+      <div id="modal-content">
+        <h1>モーダルウィンドウ</h1>
+        <p>ここにモーダルウィンドウの内容を表示します。</p>
+      </div>
+    </div>
+
     <a-scene embedded arjs>
       <a-marker preset="hiro" id="marker-hiro" registerevents>
         <a-box id="box" position="0 0.5 0" wireframe="true">
