@@ -66,7 +66,20 @@
           </a-animation>
         </a-box>
       </a-marker>
-      <a-entity camera></a-entity>
+      <!--別のマーカー-->
+      <a-marker pattern="./pattern.patt" id="marker-2" registerevents>
+        <a-box id="box2" position="0 0.5 0" wireframe="true">
+          <a-animation
+            attribute="position"
+            from="0 0.5 0"
+            to="0 2.5 0"
+            dur="5000"
+            repeat="indefinite"
+            begin="markerfound"
+            end="markerlost">
+          </a-animation>
+        </a-box>
+      </a-marker>
     </a-scene>
     <script>
       //モーダルウィンドウを閉じる
