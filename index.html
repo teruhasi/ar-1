@@ -7,31 +7,16 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script>
       AFRAME.registerComponent('marker-handler', {
-        schema: {
-          // スキーマの定義（必要に応じて）
-        },
-
         init: function () {
-          // thisのバインドを保持
-          const self = this;
+          const marker = document.querySelector('a-marker');
 
-          // マーカーが検出された時のイベント
-          this.el.addEventListener('markerFound', function () {
-            console.log('マーカーを検出しました');
-            self.el.emit('marker-detected');
+          marker.addEventListener('markerFound', () => {
+            console.log('マーカーを認識しました');
           });
 
-          // マーカーが見失われた時のイベント
-          this.el.addEventListener('markerLost', function () {
+          marker.addEventListener('markerLost', () => {
             console.log('マーカーを見失いました');
-            self.el.emit('marker-lost');
           });
-        },
-
-        // コンポーネントが削除される時のクリーンアップ
-        remove: function () {
-          this.el.removeEventListener('markerFound');
-          this.el.removeEventListener('markerLost');
         },
       });
     </script>
@@ -41,7 +26,7 @@
     <a-scene embedded arjs>
       <!-- マーカーの定義 -->
       <a-marker preset="hiro">
-        <a-box position="0 0 0" scale="1 1 1" color="red"></a-box>
+        <a-box position="0 0 0" scale="1 1 1" color="green"></a-box>
       </a-marker>
 
       <!-- カメラ -->
