@@ -5,6 +5,21 @@
     <!-- A-Frame と AR.js の読み込み -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script>
+      AFRAME.registerComponent('marker', {
+        init: function () {
+          const marker = this.el;
+
+          marker.addEventListener('markerFound', function () {
+            console.log('++');
+          });
+
+          marker.addEventListener('markerLost', function () {
+            console.log('マーカーを見失いました');
+          });
+        },
+      });
+    </script>
   </head>
   <body style="margin: 0px; overflow: hidden">
     <!-- A-Frame シーン -->
