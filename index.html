@@ -28,22 +28,6 @@
         });
       },
     });
-
-    //モーダルウィンドウを閉じる
-    document
-      .querySelector('#close-modal')
-      .addEventListener('click', function () {
-        document.querySelector('#modal').style.display = 'none';
-        console.log('モーダルウィンドウを閉じました');
-      });
-
-    //モーダルウィンドウを開く
-    document
-      .querySelector('#open-modal')
-      .addEventListener('click', function () {
-        document.querySelector('#modal').style.display = 'block';
-        console.log('モーダルウィンドウを開きました');
-      });
   </script>
 
   <body style="margin: 0px; overflow: hidden">
@@ -84,5 +68,22 @@
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
+    <script>
+      //モーダルウィンドウを閉じる
+      document
+        .querySelector('#close-modal')
+        .addEventListener('click', function () {
+          document.querySelector('#modal').style.display = 'none';
+          console.log('モーダルウィンドウを閉じました');
+        });
+
+      //モーダルウィンドウを開く
+      document
+        .querySelector('#open-modal')
+        .addEventListener('click', function () {
+          document.querySelector('#modal').style.display = 'block';
+          console.log('モーダルウィンドウを開きました');
+        });
+    </script>
   </body>
 </html>
