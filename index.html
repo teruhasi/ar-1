@@ -16,6 +16,9 @@
 
           // アニメーションの開始
           document.querySelector('#box').emit('markerfound');
+          document
+            .querySelector('a-video')
+            .components.material.material.map.image.play();
         });
 
         // マーカーを見失ったイベントの登録
@@ -25,6 +28,9 @@
 
           // アニメーションの停止
           document.querySelector('#box').emit('markerlost');
+          document
+            .querySelector('a-video')
+            .components.material.material.map.image.pause();
         });
       },
     });
@@ -68,26 +74,19 @@
       </a-marker>
       <!--別のマーカー-->
       <a-marker preset="kanji" id="marker-2" registerevents>
-        <!-- <a-box id="box2" position="0 0.5 0" wireframe="true">
-          <a-animation
-            attribute="position"
-            from="0 0.5 0"
-            to="0 2.5 0"
-            dur="5000"
-            repeat="indefinite"
-            begin="markerfound"
-            end="markerlost">
-          </a-animation>
-        </a-box> -->
         <a-video
           src="koara.mp4"
           position="0 0.5 0"
           width="1"
-          height="1"></a-video>
+          height="1"
+          play="true"
+          autoplay
+          loop="true"
+          crossorigin="anonymous"></a-video>
       </a-marker>
     </a-scene>
     <script>
-      //モーダルウィンドウを閉じる
+      //モーダルウィンドウを閉じ��
       document
         .querySelector('#close-modal')
         .addEventListener('click', function () {
