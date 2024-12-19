@@ -3,33 +3,33 @@
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
   <script>
-    AFRAME.registerComponent('registerevents', {
+    AFRAME.registerComponent("registerevents", {
       init: function () {
         var marker = this.el;
 
         // マーカーを検出したイベントの登録
-        marker.addEventListener('markerFound', function () {
+        marker.addEventListener("markerFound", function () {
           var markerId = marker.id;
-          console.log('markerFound', markerId);
+          console.log("markerFound", markerId);
           //モーダルウィンドウを実装
-          document.querySelector('#modal').style.display = 'block';
+          document.querySelector("#modal").style.display = "block";
 
           // アニメーションの開始
-          document.querySelector('#box').emit('markerfound');
+          document.querySelector("#box").emit("markerfound");
           document
-            .querySelector('a-video')
+            .querySelector("a-video")
             .components.material.material.map.image.play();
         });
 
         // マーカーを見失ったイベントの登録
-        marker.addEventListener('markerLost', function () {
+        marker.addEventListener("markerLost", function () {
           var markerId = marker.id;
-          console.log('markerLost', markerId);
+          console.log("markerLost", markerId);
 
           // アニメーションの停止
-          document.querySelector('#box').emit('markerlost');
+          document.querySelector("#box").emit("markerlost");
           document
-            .querySelector('a-video')
+            .querySelector("a-video")
             .components.material.material.map.image.pause();
         });
       },
@@ -49,7 +49,8 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 999999;
-      ">
+      "
+    >
       <div id="modal-content">
         <h1>モーダルウィンドウ</h1>
         <p>ここにモーダルウィンドウの内容を表示します。</p>
@@ -68,7 +69,8 @@
             dur="5000"
             repeat="indefinite"
             begin="markerfound"
-            end="markerlost">
+            end="markerlost"
+          >
           </a-animation>
         </a-box>
       </a-marker>
@@ -82,24 +84,25 @@
           play="true"
           autoplay
           loop="true"
-          crossorigin="anonymous"></a-video>
+          crossorigin="anonymous"
+        ></a-video>
       </a-marker>
     </a-scene>
     <script>
       //モーダルウィンドウを閉じ��
       document
-        .querySelector('#close-modal')
-        .addEventListener('click', function () {
-          document.querySelector('#modal').style.display = 'none';
-          console.log('モーダルウィンドウを閉じました');
+        .querySelector("#close-modal")
+        .addEventListener("click", function () {
+          document.querySelector("#modal").style.display = "none";
+          console.log("モーダルウィンドウを閉じました");
         });
 
       //モーダルウィンドウを開く
       document
-        .querySelector('#open-modal')
-        .addEventListener('click', function () {
-          document.querySelector('#modal').style.display = 'block';
-          console.log('モーダルウィンドウを開きました');
+        .querySelector("#open-modal")
+        .addEventListener("click", function () {
+          document.querySelector("#modal").style.display = "block";
+          console.log("モーダルウィンドウを開きました");
         });
     </script>
   </body>
